@@ -1,11 +1,8 @@
 import App from "./App"
 
 
-function Click() {
-
-    if (btn.click) {
-        alert("Click")
-    }
+const Btn = () => {
+    alert("clicked")
 }
 
-export default  Click
+export default  Btn

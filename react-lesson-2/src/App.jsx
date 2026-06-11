@@ -1,7 +1,7 @@
 import './App.css'
 import Card from './Card.jsx'
 import GreeetingCard from './GreetingCard.jsx'
-import Button from './Buttons.jsx'
+import Btn from './Buttons.jsx'
 
 function App() {
 
@@ -29,7 +29,7 @@ function App() {
       <Card  name=''/>
       <Card  sar='React bu javascript kurubxonasi'/>
 
-      <button className='btn'>Bosil</button>
+      <button onClick={Btn} className='btn'>Bosil</button>
     </>
   )
 }
