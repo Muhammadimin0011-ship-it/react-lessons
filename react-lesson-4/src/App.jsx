@@ -9,6 +9,9 @@ function App() {
   const [light, setLight] = useState("off")
   const [login, setLogin] = useState(false)
   const [emoji, setEmoji] = useState("Happy😀")
+  const [color, setColor] = useState("black")
+  const [score, setScore] = useState(65)
+  const [text, setText] = useState("block")
 
   function heandleNext() {
     setCount(count + 1)
@@ -38,6 +41,41 @@ function App() {
   function handleLogin() {
     setLogin(!login)
   }
+
+  function reverseEmoji() {
+    setEmoji("Sad😔")
+  }
+
+  function reverseEmojis() {
+    setEmoji("cool😎")
+  }
+
+  function changeColor() {
+    setColor("red")
+  }
+
+  function changeColorr() {
+    setColor("black")
+  }
+
+  function plusScore() {
+    setScore(score + 5);
+  }
+
+  function minusScore() {
+    setScore(score - 5);
+  }
+
+  function changeText() {
+    setText("none")
+  }
+
+  function changeTextt() {
+    setText("block")
+  }
+
+
+
 
   return (
     <div>
@@ -78,6 +116,41 @@ function App() {
         <button onClick={handleLogin}>
           Login holatini o'zgartirish
         </button>
+      </div>
+
+      <div>
+        <h1>oltinchi vazifa</h1>
+        <button onClick={reverseEmoji}>Sad😔</button>
+        <button onClick={reverseEmojis}>Cool😎</button>
+        <h1>Current mod: {emoji}</h1>
+      </div>
+
+      <div>
+        <h1>yetinchi vazifa</h1>
+        <button onClick={changeColor}>qizil</button>
+        <button onClick={changeColorr}>qora</button>
+        <h1 style={{ color: color }}>React js</h1>
+      </div>
+
+      <div>
+        <h1>sokizinchi vazifa</h1>
+
+        <h1>baho {score}</h1>
+
+        <button onClick={plusScore}>+5</button>
+        <button onClick={minusScore}>-5</button>
+
+        <h2>
+          {score >= 70 ? "✅ O'tdi" : "❌ Yiqildi"}
+        </h2>
+      </div>
+
+      <div>
+        <h1>toqizinchi vazifa</h1>
+        <button onClick={changeTextt}>korinadi</button>
+        <button onClick={changeText}>korinmaydi</button>
+
+        <h1 style={{ display: text }}>bu matn korinib turibdi</h1>
       </div>
     </div>
 
