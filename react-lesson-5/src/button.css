@@ -1,0 +1,19 @@
+button{
+    padding: 8px 16px;
+    border-radius: 6px
+}
+.text{
+    color: blueviolet;
+    border: none;
+}
+
+
+.conteined{
+    background-color: blueviolet;
+    color: white;
+}
+
+.outlined{
+    border: 1px solid blueviolet;
+    color: blueviolet;
+}

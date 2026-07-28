@@ -3,11 +3,16 @@ import Button from './button'
 import './App.css'
 
 function App() {
-  return(
+  const [state, setstate] = useState("")
+
+  return (
     <div>
-      <Button variant="text">text</Button>
-      <Button variant="conteiner">text</Button>
-      <Button variant="outlined">text</Button>
+      <h1>{state}</h1>
+      <input  
+      style={{outlineColor: state.length >= 5 ? "green" : "red"}}
+      onChange={(e) =>{
+        setstate(e.target.value)
+      }} type="text" />
     </div>
   )
 }
