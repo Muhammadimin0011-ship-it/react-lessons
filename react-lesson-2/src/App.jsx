@@ -4,8 +4,7 @@ import GreeetingCard from './GreetingCard.jsx'
 import Btn from './Buttons.jsx'
 
 function App() {
-
-
+  
   return (
     <>
       <h1>Mening ismim Muhammademin</h1>
@@ -26,8 +25,8 @@ function App() {
 
 
 
-      <Card  name=''/>
-      <Card  sar='React bu javascript kurubxonasi'/>
+      <Card  name='Html'/>
+      <Card  sar='Html bu web sayt strukturasi'/>
 
       <button onClick={Btn} className='btn'>Bosil</button>
     </>
