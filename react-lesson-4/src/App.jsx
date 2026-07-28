@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { languages } from './data'
 
 import './App.css'
 
@@ -12,6 +13,7 @@ function App() {
   const [color, setColor] = useState("black")
   const [score, setScore] = useState(65)
   const [text, setText] = useState("block")
+  const [index, setIndex] = useState(0);
 
   function heandleNext() {
     setCount(count + 1)
@@ -74,6 +76,21 @@ function App() {
     setText("block")
   }
 
+  function next() {
+    if (index === languages.length - 1) {
+      setIndex(0);
+    } else {
+      setIndex(index + 1);
+    }
+  }
+
+  function prev(params) {
+    if (index === 0) {
+      setIndex(languages.length - 1);
+    } else {
+      setIndex(index - 1);
+    }
+  }
 
 
 
@@ -152,6 +169,13 @@ function App() {
 
         <h1 style={{ display: text }}>bu matn korinib turibdi</h1>
       </div>
+
+      <div>
+        <button onClick={next}>prev</button>
+        <h2>{languages[index]}</h2>
+        <button onClick={prev}>next</button>
+      </div>
+
     </div>
 
   )
