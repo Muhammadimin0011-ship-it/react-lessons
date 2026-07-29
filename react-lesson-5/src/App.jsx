@@ -9,7 +9,7 @@ function App() {
     <div>
       <h1>{state}</h1>
       <input  
-      style={{outlineColor: state.length >= 5 ? "green" : "red"}}
+      style={{outlineColor: state.length >= 6 ? "green" : "red"}}
       onChange={(e) =>{
         setstate(e.target.value)
       }} type="text" />
