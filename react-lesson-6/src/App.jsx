@@ -8,6 +8,12 @@ function App() {
   const [lle, setlle] = useState("")
   const [password, setpassword] = useState("")
   const [text, setText] = useState("");
+  const [contact, setContact] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
 
 
 
@@ -22,6 +28,14 @@ function App() {
       return "🟢 Strong";
     }
   }
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setContact((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
   return (
     <>
       <div>
@@ -92,7 +106,46 @@ function App() {
         </div>
       </div>
 
-      
+
+
+
+
+
+      <div>
+        <input
+          type="text"
+          name="name"
+          value={contact.name}
+          onChange={handleChange}
+          placeholder="Ism: "
+        />
+        <input
+          type="email"
+          name="email"
+          value={contact.email}
+          onChange={handleChange}
+          placeholder="Email: "
+        />
+        <input
+          type="number"
+          name="phone"
+          value={contact.phone}
+          onChange={handleChange}
+          placeholder="Telefon raqam: "
+        /><label htmlFor="textareea">Xabar kiriting: </label>
+        <textarea
+          name="message"
+          value={contact.message}
+          id="textareea"
+          onChange={handleChange}
+          placeholder="Xabar yozing"
+        ></textarea>
+        <h3>Kiritilayotgan ma'lumotlar:</h3>
+        <p>Ism: {contact.name}</p>
+        <p>Email: {contact.email}</p>
+        <p>Telefon: {contact.phone}</p>
+        <p>Xabar: {contact.message}</p>
+      </div>
     </ >
 
   )

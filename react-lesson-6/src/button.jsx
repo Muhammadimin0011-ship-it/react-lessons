@@ -1,6 +1,6 @@
 import "./button.css";
 function Button(props) {
-    const {size, children} = props
+    const {variant, size, children} = props
 
     return <button className={size}>{children}</button>
 }
