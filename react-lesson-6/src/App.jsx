@@ -5,7 +5,22 @@ import Button from './button'
 function App() {
   const [count, setcount] = useState("Qidiruv boshlash uchun yozishni boshlang...")
   const [lle, setlle] = useState("")
+  const [password, setpassword] = useState("")
+  const [text, setText] = useState("");
 
+
+
+  function Filtrinput() {
+    if (password.length === 0) {
+      return "Parol kiriting";
+    } else if (password.length <= 5) {
+      return "🔴 Weak";
+    } else if (password.length <= 10) {
+      return "🟡 Medium";
+    } else {
+      return "🟢 Strong";
+    }
+  }
   return (
     <>
       <div>
@@ -27,13 +42,45 @@ function App() {
       <div>
         <h1>vazifa 3</h1>
 
-        <h1 style={{color: lle.length > 20 ? "red" : "black"}}>{lle}</h1>
+        <h1 style={{ color: lle.length >= 20 ? "red" : "black" }}>{lle}</h1>
 
-        <input onChange={(e) => {setlle(e.target.value)}} type="text" />
+        <input onChange={(e) => { setlle(e.target.value) }} type="text" />
 
         <h4>Belgilar soni: {lle.length}</h4>
       </div>
-    </>
+
+      <div>
+        <h1>vazifa 4</h1>
+
+        <input
+          type="password"
+          placeholder="Parol kiriting..."
+          value={password}
+          onChange={(e) => setpassword(e.target.value)}
+        />
+
+        <h3>{Filtrinput()}</h3>
+      </div>
+
+      <div>
+        <div>
+          <h1>Character Counter</h1>
+
+          <textarea
+            placeholder="Matn yozing..."
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            rows={5}
+            cols={40}
+          ></textarea>
+
+          <h3>Belgilar: {text.length}</h3>
+
+          {text.length > 100 && <h3>⚠️ Juda uzun matn</h3>}
+        </div>
+      </div>
+    </ >
+
   )
 }
 
