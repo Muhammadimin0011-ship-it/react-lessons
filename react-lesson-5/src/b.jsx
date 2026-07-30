@@ -1,4 +1,4 @@
-import "./button.css";
+import "./b.css";
 
 function Button(props) {
     const { variant, children } = props;

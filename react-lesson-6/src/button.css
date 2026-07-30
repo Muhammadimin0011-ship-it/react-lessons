@@ -1,0 +1,25 @@
+button{
+    padding: 8px 16px;
+    border: 1px solid;
+}
+
+.small{
+    padding: 5px 10px;
+    background-color: red;
+    color: white;
+    border-radius: 7px;
+}
+
+.medium{
+    padding: 15px 30px;
+    background-color: yellow;
+    color: white;
+    border-radius: 7px;
+}
+
+.large{
+    padding: 20px 40px;
+    background-color: green;
+    color: white;
+    border-radius: 7px;
+}
