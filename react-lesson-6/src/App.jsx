@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import Button from './button'
+import Input from "./input";
 
 function App() {
   const [count, setcount] = useState("Qidiruv boshlash uchun yozishni boshlang...")
@@ -63,22 +64,35 @@ function App() {
       </div>
 
       <div>
+
+        <h1>Character Counter</h1>
+
+        <textarea
+          placeholder="Matn yozing..."
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          rows={5}
+          cols={40}
+        ></textarea>
+
+        <h3>Belgilar: {text.length}</h3>
+
+        {text.length > 100 && <h3>⚠️ Juda uzun matn</h3>}
+
+      </div>
+
+      <div>
         <div>
-          <h1>Character Counter</h1>
-
-          <textarea
-            placeholder="Matn yozing..."
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-            rows={5}
-            cols={40}
-          ></textarea>
-
-          <h3>Belgilar: {text.length}</h3>
-
-          {text.length > 100 && <h3>⚠️ Juda uzun matn</h3>}
+          <Input label="Ism: " placeholder="Ismingizni kiriting" type="text" />
+          <Input
+            label="Familiya: "
+            placeholder="Familiyangizni kiriting"
+            type="password"
+          />
         </div>
       </div>
+
+      
     </ >
 
   )
