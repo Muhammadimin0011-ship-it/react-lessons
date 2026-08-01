@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.light {
+  background-color: white;
+  color: black;
+}
+
+.dark {
+  background-color: #222;
+  color: white;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 18px;
+}
+
+input {
+  padding: 10px;
+  font-size: 20px;
+}
+
+h1 {
+  font-size: 35px;
+}
