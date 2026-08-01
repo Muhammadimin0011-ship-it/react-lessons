@@ -5,6 +5,12 @@ function App() {
   const [darkMode, setDarkMode] = useState(false)
   const [showProfile, setshowProfile] = useState(true)
   const [name, setName] = useState("");
+  const [search, setsearch] = useState("")
+
+  useEffect(() => {
+    console.log(`searching ${search}`);
+
+  }, [search])
 
   useEffect(() => {
     console.log("Theme changed.");
@@ -72,6 +78,19 @@ function App() {
         />
 
         <h1>Salom, {name}!</h1>
+      </div>
+
+      <div className='container'>
+        <input type="text"
+          placeholder='Qidiring...'
+          value={search}
+          onChange={(e) => setsearch(e.target.value)} />
+
+        {search ? (
+          <h2>{search}</h2>
+        ) : (
+          <h2>Qidirish uchun yozishni boshlang...</h2>
+        )}
       </div>
 
       
