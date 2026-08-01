@@ -1,11 +1,24 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, } from 'react'
 import './App.css'
 
 function App() {
+  const colors = ['red', 'blue', 'green', 'orange', 'purple']
+
+
   const [darkMode, setDarkMode] = useState(false)
   const [showProfile, setshowProfile] = useState(true)
   const [name, setName] = useState("");
   const [search, setsearch] = useState("")
+  const [text, setText] = useState("")
+  const [color, setcolor] = useState("white")
+  const [manfiy, setmanfiy] = useState(0)
+  //const [height, setheight] = useState(0)
+  //const [kilo, setkilo] = useState(0)
+
+  useEffect(() => {
+    console.log(`belgilar soni ${text.length}`);
+
+  }, [text])
 
   useEffect(() => {
     console.log(`searching ${search}`);
@@ -16,11 +29,6 @@ function App() {
     console.log("Theme changed.");
   }, [darkMode]);
 
-  function changeTheme() {
-    setDarkMode(!darkMode);
-  }
-
-
   useEffect(() => {
     if (showProfile) {
       console.log("Profile ko'rsatildi.");
@@ -28,6 +36,25 @@ function App() {
       console.log("Profile yashirildi.");
     }
   }, [showProfile]);
+
+  useEffect(() => {
+    document.title = name;
+  }, [name]);
+
+  useEffect(() => {
+    document.body.style.backgroundColor = color
+    console.log(`background color changed.`);
+  }, [color])
+
+  useEffect(() => {
+    console.log(`counter  ${manfiy}`);
+  }, [manfiy])
+
+
+  function changeTheme() {
+    setDarkMode(!darkMode);
+  }
+
 
   function toggleProfile() {
     setshowProfile(!showProfile);
@@ -41,10 +68,29 @@ function App() {
     );
   }
 
+  function changeColor() {
+    const randomIndex = Math.floor(Math.random() * colors.length)
+    setcolor(colors[randomIndex])
+  }
 
-  useEffect(() => {
-    document.title = name;
-  }, [name]);
+  function increment() {
+    setmanfiy(manfiy + 1)
+  }
+
+
+  function decrement() {
+    setmanfiy(manfiy - 1)
+  }
+
+
+  function reset() {
+    setmanfiy(0)
+  }
+
+  // function heightt() {
+  //   
+  // }
+
 
 
   return (
@@ -58,7 +104,7 @@ function App() {
         </button>
       </div>
 
-      <div className="container">
+      <div>
         <button onClick={toggleProfile}>Hide Profile</button>
 
         <div className="card">
@@ -69,7 +115,7 @@ function App() {
         </div>
       </div>
 
-      <div className="container">
+      <div>
         <input
           type="text"
           placeholder="Ismingizni kiriting"
@@ -80,7 +126,7 @@ function App() {
         <h1>Salom, {name}!</h1>
       </div>
 
-      <div className='container'>
+      <div>
         <input type="text"
           placeholder='Qidiring...'
           value={search}
@@ -93,7 +139,40 @@ function App() {
         )}
       </div>
 
-      
+      <div>
+        <textarea
+          placeholder="Matn yozing..."
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+        ></textarea>
+
+        <h2
+          className={text.length > 100 ? "red" : text.length > 50 ? "yellow" : "black"}>
+          Belgilar soni: {text.length}
+        </h2>
+      </div>
+
+      <div>
+        <h1>Current Color: {color}</h1>
+
+        <button onClick={changeColor}>
+          Change Color
+        </button>
+      </div>
+
+      <div>
+        <h1
+          className={manfiy > 0 ? "green" : manfiy < 0 ? "red" : "black"}
+        >
+          {manfiy}
+        </h1>
+
+        <div className="buttons">
+          <button onClick={increment}>➕ Increment</button>
+          <button onClick={decrement}>➖ Decrement</button>
+          <button onClick={reset}>🔄 Reset</button>
+        </div>
+      </div>
     </div>
 
 
