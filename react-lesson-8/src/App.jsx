@@ -60,13 +60,13 @@ function App() {
     setshowProfile(!showProfile);
   }
 
-  if (!showProfile) {
-    return (
-      <div className="container">
-        <button onClick={toggleProfile}>Show Profile</button>
-      </div>
-    );
-  }
+  // if (!showProfile) {
+  //   return (
+  //     <div className="container">
+  //       <button onClick={toggleProfile}>Show Profile</button>
+  //     </div>
+  //   );
+  // }
 
   function changeColor() {
     const randomIndex = Math.floor(Math.random() * colors.length)
@@ -106,13 +106,13 @@ function App() {
 
       <div>
         <button onClick={toggleProfile}>Hide Profile</button>
-
+{showProfile ?
         <div className="card">
           <h1>👤</h1>
           <h2>Ali Valiyev</h2>
           <p>Frontend Developer</p>
           <p>📍 Jizzax</p>
-        </div>
+        </div> : null}
       </div>
 
       <div>
