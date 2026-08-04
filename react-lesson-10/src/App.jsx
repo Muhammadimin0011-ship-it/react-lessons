@@ -87,7 +87,7 @@ function App() {
       <div className="expense-list">
         {expenses.map((expense, index) => (
           <div className="expense-card" key={index}>
-            <h3>{expense.title}</h3>
+            <h3><strong>Name:</strong> {expense.title}</h3>
 
             <p>
               <strong>Amount:</strong> {expense.amount} so'm
