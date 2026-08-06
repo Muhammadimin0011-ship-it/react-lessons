@@ -1,0 +1,18 @@
+.wrapper{
+    display: grid;
+    grid-template-columns: auto, auto, auto, auto;
+}
+
+.bu{
+    background-color: blue;
+    color: white;
+}
+button{
+    padding: 8px;
+    cursor: pointer;
+}
+
+.sel{
+    display: flex;
+    gap: 10px;
+}
