@@ -1,12 +1,20 @@
 import { useState } from 'react'
 import './App.css'
 
+const foods = [
+  { id: 1, name: "Lavash", category: "Fast Food" },
+  { id: 2, name: "Burger", category: "Fast Food" },
+  { id: 3, name: "Osh", category: "Milliy" },
+  { id: 4, name: "Manti", category: "Milliy" }
+]
+
+
 function App() {
   const [books, setBooks] = useState([])
   const [title, setTitle] = useState("")
   const [author, setAuthor] = useState("")
   const [search, setSearch] = useState("")
-
+  const [category, setCategory] = useState("Hammasi");
 
   function addBook() {
     if (title === "" || author === "") {
@@ -94,6 +102,42 @@ function App() {
             <button onClick={() => { heandleDelete(index) }}>🗑 O'chirish</button>
           </div>
         ))}
+      </div>
+
+      <hr />
+      <hr />
+
+
+      <div>
+        <button onClick={() => setCategory("Hammasi")}>
+          Hammasi
+        </button>
+
+        <button onClick={() => setCategory("Fast Food")}>
+          Fast Food
+        </button>
+
+        <button onClick={() => setCategory("Milliy")}>
+          Milliy
+        </button>
+        {
+          foods
+            .filter((item) => {
+              if (category === "Hammasi") {
+                return true;
+              } else {
+                return item.category === category;
+              }
+            })
+            .map((item) => (
+              <div key={item.id}>
+                <h2>🍔 {item.name}</h2>
+
+                <p>Kategoriya: {item.category}</p>
+
+                <button>Buyurtma berish</button>
+              </div>
+            ))}
       </div>
     </div>
   )
